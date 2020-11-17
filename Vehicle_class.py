@@ -28,9 +28,10 @@ class Vehicle():
         self.steps=0
 
         #now to calculate the number of steps for the vehicle
-        data=str("%03" % (data+1))
-        file= "This contains the location data for the"
-        f1=file.readlines()
+        path = r'C:\Users\Aditya Katyal\PycharmProjects\ResourceallocationEdgecomputing\data1'
+        for filename in os.listdir(path):
+            with open(os.path.join(path, filename)) as f:
+                f1 = f.readlines()
         #reading data from the location data file
         data1=0
         for datalines in f1:
@@ -82,8 +83,6 @@ class Vehicle():
                 else:
                     self.request.state=3
                     self.request.edge2vehsize=self.request.tasktype.request_edge2vehsize
-                    #todo taking random value for now
-                    #this is for edge to vehicle request
                     self.request.edge2vehsize-=1000
 
             else:
